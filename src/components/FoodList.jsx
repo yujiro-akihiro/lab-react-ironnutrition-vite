@@ -1,23 +1,23 @@
+
+// FoodList.jsx
 import React, { useState } from "react";
 import FoodBox from "./FoodBox";
 import AddFoodForm from "./AddFoodForm";
 import Search from "./Search";
-import foodsJson from "../foods.json";
 import { Row, Col, Empty } from "antd";
 
-function FoodList() {
-  const [foods, setFoods] = useState(foodsJson);
-  const [filteredFoods, setFilteredFoods] = useState(foodsJson);
+function FoodList({ foods }) {
+  const [showForm, setShowForm] = useState(false);
+  const [filteredFoods, setFilteredFoods] = useState(foods); // foodsで初期化
 
   const addFood = (newFood) => {
-    const updatedFoods = [...foods, newFood];
-    setFoods(updatedFoods);
+    const updatedFoods = [...filteredFoods, newFood]; // filteredFoodsを更新
     setFilteredFoods(updatedFoods);
+    setShowForm(false); // フォームを非表示に
   };
 
   const deleteFood = (id) => {
-    const updatedFoods = foods.filter((food) => food.id !== id);
-    setFoods(updatedFoods);
+    const updatedFoods = filteredFoods.filter((food) => food.id !== id);
     setFilteredFoods(updatedFoods);
   };
 
@@ -30,7 +30,7 @@ function FoodList() {
 
   return (
     <div className="food-list-container">
-      <AddFoodForm onAddFood={addFood} />
+      <AddFoodForm onAddFood={addFood} showForm={showForm} setShowForm={setShowForm} /> {/* 追加 */}
       <Search onSearch={handleSearch} />
       <Row gutter={[16, 16]} justify="center">
         {filteredFoods.length > 0 ? (

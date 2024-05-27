@@ -22,8 +22,3 @@ function FoodBox({ food, onDelete }) {
 }
 
 export default FoodBox;
-
-
-
-
-

@@ -1,19 +1,20 @@
+
 // AddFoodForm.jsx
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 
 const AddFoodForm = ({ onAddFood }) => {
-  const [form] = Form.useForm(); 
+  const [form] = Form.useForm(); // Formインスタンスを作成
 
-  const handleSubmit = (values) => { /
+  const handleSubmit = (values) => { // onFinishの引数にvaluesが渡されるので、それを利用するように変更
     const newFood = {
       name: values.name,
       image: values.image,
-      calories: parseInt(values.calories), 
-      servings: parseInt(values.servings), 
+      calories: parseInt(values.calories), // 文字列から数値に変換
+      servings: parseInt(values.servings), // 文字列から数値に変換
     };
     onAddFood(newFood);
-    form.resetFields(); 
+    form.resetFields(); // フォームをリセット
   };
 
   return (
