@@ -1,18 +1,46 @@
+// FoodBox.jsx
 import React from 'react';
+import { Card, Button } from 'antd';
+import './FoodBox.css';  
 
 function FoodBox({ food, onDelete }) {
   return (
-    <div>
-      <p>{food.name}</p>
-      <img src={food.image} alt={food.name} />
+    <Card
+      title={food.name}
+      cover={<img alt={food.name} src={food.image} style={{ height: '200px', objectFit: 'cover' }} />}
+      actions={[
+        <Button type="primary" danger onClick={() => onDelete(food.id)}>
+          Delete
+        </Button>,
+      ]}
+    >
       <p>Calories: {food.calories}</p>
       <p>Servings: {food.servings}</p>
-      <p>
-        <b>Total Calories: {food.servings * food.calories}</b> kcal
-      </p>
-      <button onClick={() => onDelete(food.id)}>Delete</button>
-    </div>
+      <p><b>Total Calories: {food.servings * food.calories}</b> kcal</p>
+    </Card>
   );
 }
 
 export default FoodBox;
+
+
+
+
+
+
+// function FoodBox({ food, onDelete }) {
+//   return (
+//     <div className='food-box'>
+//       <p><b className='tittle'>{food.name}</b></p>
+//       <img className='food-image' src={food.image} alt={food.name} />
+//       <p>Calories: {food.calories}</p>
+//       <p>Servings: {food.servings}</p>
+//       <p>
+//         <b>Total Calories: {food.servings * food.calories}</b> kcal
+//       </p>
+//       <button onClick={() => onDelete(food.id)}>Delete</button>
+//     </div>
+//   );
+// }
+
+// export default FoodBox;

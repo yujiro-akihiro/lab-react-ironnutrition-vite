@@ -1,24 +1,28 @@
-import React, { useState } from "react";
-import FoodBox from "./components/FoodBox";
-import foodsJson from "./foods.json";
-import "./App.css";
+import React from 'react';
+import FoodList from './components/FoodList';
+
+import './App.css';
 
 function App() {
-  const [foods, setFoods] = useState(foodsJson);
-
-  const deleteFood = (id) => {
-    setFoods(foods.filter(food => food.id !==id));
-  }
-
   return (
     <div className="App">
-      <h1>LAB | React IronNutrition</h1>
-
-      {foods.map((food) => (
-        <FoodBox key={food.id} food={food} onDelete={deleteFood}/>
-      ))}
+      <FoodList />
     </div>
   );
 }
 
 export default App;
+
+// import React from 'react';
+// import FoodList from './components/FoodList';
+// import './App.css';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <FoodList />
+//     </div>
+//   );
+// }
+
+// export default App;

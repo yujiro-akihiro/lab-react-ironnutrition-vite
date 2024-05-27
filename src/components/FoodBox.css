@@ -1,0 +1,5 @@
+.ant-card {
+    width: calc(320px + 2rem); /* 横幅300pxにパディングを追加 */
+    margin-bottom: 2rem; /* 下側に余白を追加 */
+  }
+  
