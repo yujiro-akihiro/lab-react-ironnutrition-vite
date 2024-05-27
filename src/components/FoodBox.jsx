@@ -27,20 +27,3 @@ export default FoodBox;
 
 
 
-
-// function FoodBox({ food, onDelete }) {
-//   return (
-//     <div className='food-box'>
-//       <p><b className='tittle'>{food.name}</b></p>
-//       <img className='food-image' src={food.image} alt={food.name} />
-//       <p>Calories: {food.calories}</p>
-//       <p>Servings: {food.servings}</p>
-//       <p>
-//         <b>Total Calories: {food.servings * food.calories}</b> kcal
-//       </p>
-//       <button onClick={() => onDelete(food.id)}>Delete</button>
-//     </div>
-//   );
-// }
-
-// export default FoodBox;
